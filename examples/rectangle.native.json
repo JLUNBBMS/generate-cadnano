@@ -1,0 +1,45 @@
+{
+  "status": "PASS",
+  "errors": [],
+  "virtual_helices": 8,
+  "crossovers": {
+    "scaf": 7,
+    "stap": 28
+  },
+  "scaffold_oligos": 1,
+  "staple_oligos": 28,
+  "scaffold_lengths": [
+    984
+  ],
+  "staple_lengths": [
+    24,
+    24,
+    32,
+    32,
+    32,
+    32,
+    32,
+    32,
+    32,
+    32,
+    32,
+    32,
+    32,
+    32,
+    32,
+    32,
+    32,
+    32,
+    32,
+    32,
+    32,
+    32,
+    40,
+    40,
+    54,
+    54,
+    54,
+    54
+  ],
+  "native_routing_roundtrip": true
+}

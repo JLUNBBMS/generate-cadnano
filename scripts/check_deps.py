@@ -1,16 +1,18 @@
 #!/usr/bin/env python3
-"""Check that scadnano is installed and report its version."""
+"""Check the generation dependency. cadnano2 is optional for integration QA."""
+from importlib.metadata import PackageNotFoundError, version
 import sys
-from importlib.metadata import version, PackageNotFoundError
 
-# Required: scadnano
+if sys.version_info < (3, 10):
+    print("Generation requires Python >= 3.10")
+    raise SystemExit(1)
 try:
     import scadnano
-    try:
-        ver = version("scadnano")
-    except PackageNotFoundError:
-        ver = "unknown"
-    print(f"scadnano {ver} installed")
-except ImportError:
-    print("scadnano NOT installed — run: pip install scadnano")
-    sys.exit(1)
+    installed = version("scadnano")
+except (ImportError, PackageNotFoundError):
+    print("Missing scadnano; run: python -m pip install -r requirements.txt")
+    raise SystemExit(1)
+if installed != "0.20.1":
+    print(f"Unverified scadnano version {installed}; install requirements.txt")
+    raise SystemExit(1)
+print("scadnano 0.20.1 installed; generation dependency OK")
