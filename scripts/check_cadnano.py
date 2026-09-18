@@ -76,6 +76,9 @@ def main():
     encoded = legacy_dict_from_doc(doc, "roundtrip.json", [(v["row"], v["col"]) for v in data["vstrands"]])
     back = {vh["num"]: vh for vh in encoded["vstrands"]}
     for vh in data["vstrands"]:
+        if vh['num'] not in back:
+            errors.append(f"native roundtrip changed helix identifier {vh['num']}")
+            continue
         for field in ("num", "row", "col", "scaf", "stap", "loop", "skip"):
             if vh[field] != back[vh["num"]][field]:
                 errors.append(f"native roundtrip changed helix {vh['num']} {field}")

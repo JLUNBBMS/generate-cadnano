@@ -1,117 +1,138 @@
-# generate-cadnano — V2.0.0
+# generate-cadnano — V3.0.0
 
-根据固定模板生成 cadnano v2 DNA 折纸设计 JSON。生成器使用 `scadnano`；导出后检查实际 JSON 中的连接、坐标和 crossover 位点，全部通过才交付文件。
+生成 cadnano v2 格式的 DNA 折纸 JSON。V3 保留 V2 的 8 个模板，新增 9 个参数化入口。生成器通过 scadnano 导出，再检查拓扑、晶格位点和实际占用几何；失败不交付设计文件。
 
-## 安装与快速使用
+## 安装与使用
 
-在此文件夹打开终端，使用 Python 3.10 或更高版本：
+Python 3.10 或更高版本：
 
 ```sh
 python -m pip install -r requirements.txt
 python scripts/check_deps.py
-python scripts/template_design.py 4_helix_bundle --bases-per-helix 210 -o output/bundle4
+python scripts/template_design.py closed_rectangular_box -o output/box
 ```
 
-生成三个文件：
+Skill 安装目录须让入口直接位于 `generate-cadnano/SKILL.md`，不要多套一层目录。V3 的 Skill 名仍为 `generate-cadnano`；更新时替换旧安装，避免同时加载同名版本。
 
-- `output/bundle4.full.json`：用 cadnano 打开、查看和编辑的主文件。
-- `output/bundle4.cando_compact.json`：与主文件全部 JSON 内容一致、仅去掉排版空白的文件，供用户自行提交 CanDo。
-- `output/bundle4.report.json`：版本、实际螺旋坐标、占用区间、长度、物理 crossover 数量和验证结果。
+## 构型目录
 
-已有同名输出时拒绝覆盖，请换一个 `-o` 名称。参数错误、结构验证失败或未实现的形状均返回非零退出码；不会交付新的主文件或 compact 文件。输出目录名称由用户指定，没有固定的本机路径。
+| 入口 | 构型与默认值 |
+|---|---|
+| rectangle | V2 矩形板；square，8 helices × 128 bp |
+| square | V2 近正方形板；square，16 helices，约 118 bp |
+| long_strip | V2 长条板；square，4 helices × 128 bp |
+| planar_plate | V2 宽板；square，24 helices × 128 bp |
+| 2_helix_bundle | V2 两螺旋束；honeycomb，210 bp |
+| 4_helix_bundle | V2 四螺旋束；honeycomb，210 bp；开放邻接链 |
+| 6_helix_bundle | V2 六螺旋束；honeycomb，210 bp；含接缝 |
+| regular_tube | V2 方形开口管；square，每边 4，总共 16 helices，128 bp |
+| parametric_tube | V3 统一管道入口；默认 square 近圆截面，24 条管壁螺旋，192 bp |
+| square_tube | V3 方形管；square，宽/高计数各 3，共 12 条管壁螺旋，192 bp |
+| rectangular_tube | V3 矩形管；square，宽/高计数 3/4，共 14 条管壁螺旋，192 bp |
+| polygonal_tube | V3 晶格多边形管；默认 square 四边形，24 条管壁螺旋，192 bp |
+| near_circular_tube | V3 近圆管；按指定管壁螺旋数搜索截面，默认 square，24 条，192 bp |
+| capped_square_tube | V3 固定端盖方管；默认双端盖，总长 384 bp，盖厚包络各 128 bp |
+| capped_rectangular_tube | V3 固定端盖矩形管；默认双端盖、宽/高计数 3/4，总长 384 bp |
+| closed_rectangular_box | V3 固定封闭长方体；矩形管壁加上下两个填充端盖，默认尺寸同上 |
+| n_helix_bundle | V3 可变螺旋数的紧凑束；默认 honeycomb，12 条，210 bp |
 
-把此目录作为 Skill 安装后，也可以用自然语言描述需求。入口为 `SKILL.md`，代理应通过这里的命令或 `create_design()` 生成。
+V2 的参数默认值和路由保持兼容。新管道的两端形式由 `--end-style open|one_cap|two_caps` 控制；capped 入口不接受 open，closed_rectangular_box 只接受 two_caps。n_helix_bundle 不支持端盖。
 
-## 支持范围与参数
+## 固定端盖到底是什么
 
-| 形状 | 默认晶格 | 默认参数 | 实际含义 |
-|---|---|---|---|
-| `rectangle` | square | 8 helices × 128 bp | 普通矩形板 |
-| `square` | square | 16 helices；长度约 118 bp | 轴向/横向物理包络尺寸比 0.85–1.15 |
-| `long_strip` | square | 4 helices × 128 bp | 轴向/横向包络尺寸比至少 3 |
-| `planar_plate` | square | 24 helices × 128 bp | 横向宽度至少等于轴向长度的宽板 |
-| `2_helix_bundle` | honeycomb | 2 helices × 210 bp | 两条相邻螺旋 |
-| `4_helix_bundle` | honeycomb | 4 helices × 210 bp | 固定紧凑四螺旋截面；蜂窝排列是开放邻接链，并非四边闭环 |
-| `6_helix_bundle` | honeycomb | 6 helices × 210 bp | 蜂窝六边形截面；含闭合接缝 staple crossover |
-| `regular_tube` | square | 每边 4 helices × 128 bp | 方形周界，共 16 helices；含首尾接缝 staple crossover |
+V3 使用平行螺旋的体素式容器：外周长螺旋形成管壁；内部短螺旋填充底部/顶部；中间的内部螺旋区留空。双端盖的同一内部 helix 列有两个互不重叠的占用区间，它们经管壁接入同一条 scaffold。
 
-板状模板和螺旋束可以显式选择 `--lattice square` 或 `honeycomb`。蜂窝板的横截面是晶格决定的锯齿排列。方形管道只支持 square，选择 honeycomb 会报错，不会自动改回 square。square 晶格的六螺旋束采用固定 2×3 周界。
+这是一体式、有厚度的固定盖，不是六张薄板折叠成的盒子，也没有铰链。DNA 螺旋间仍有纳米尺度间隙，不能称为液密容器。
 
-通用参数：
+默认盖厚包络为 128 bp，约 43.52 nm；总长 384 bp，约 130.56 nm；中间空腔的轴向包络为 128 bp。端部会因交叉相位产生台阶，实际占用区间以报告为准。当前不能提供任意薄盖；最小 cap_length 为 96 bp，且不保证所有尺寸组合可解。
 
-- `--bases-per-helix`：请求的轴向坐标包络长度，整数 96–4096 bp，**不是承诺每条螺旋都恰好占用这么多碱基**。
-- `--num-helices`：板状模板为 2–64；2/4/6 螺旋束只能指定与名称相同的数值。管道请用 `--side-helices`。
-- `--side-helices`：方形管道每边 1–16 个，总数为四倍。
-- `--scaffold-length`：支架最大可用长度，默认 7249 nt；表示长度预算，不表示已分配 M13mp18 序列。
-- `--catalog`：查看支持情况。
+## V3 参数及限制
 
-参数在范围内并不保证有可行的 staple 切口方案；不存在方案或超过 scaffold 长度预算时明确失败，需要调整尺寸。最小 96 bp 是模板计算范围，不是所有生物学结构的最小长度。
+| 参数 | 含义与范围 |
+|---|---|
+| --num-helices | 管道：管壁螺旋数；螺旋束：全部螺旋数。端盖会额外增加内部 helix 列，报告分别计数 |
+| --bases-per-helix | 轴向坐标包络，96–4096 bp；并非每条 helix 都完整占用该长度 |
+| --width-helices / --height-helices | square 晶格矩形截面的边计数 w/h，2–32；总管壁数为 2(w+h) |
+| --side-helices | V3 方形的简写：w=h；不能与 width/height 同时指定。V2 regular_tube 保留旧语义与范围 |
+| --cross-section | parametric_tube 可选 square、rectangle、polygon、near_circular |
+| --polygon-sides | polygon 截面的边数；当前支持 square/4 或 honeycomb/6 |
+| --end-style | open：两端开口；one_cap：低坐标端有底；two_caps：上下固定封闭 |
+| --cap-length | 每个盖的轴向包络，96–1024 bp，默认 128；仅带盖时可用 |
+| --scaffold-length | 单条 scaffold 长度预算，默认 7249 nt；不等于分配了 M13 序列 |
 
-示例：
+边计数为避免角点重复使用的约定：w=3 的一条边包含两个角点时实际有 4 个 helix 中心。square_tube 要求 w=h；不同边长请用 rectangular_tube。指定 num_helices 和边计数时二者必须一致。
+
+带盖结构必须至少剩下 96 bp 的空腔轴向包络。默认矩形双盖有 14 条管壁 helix、6 条内部 helix 列，总计 20 条；双盖不把同一列重复计为两条。盖厚和内部数量增加都会消耗 scaffold。
+
+两种晶格都支持近圆截面和通用螺旋束。精确矩形只支持 square。规则 honeycomb 六边形壳的管壁数量为 6、18、30、42……；其他数量可尝试 near_circular。三角形、任意边数的直边管并未实现，程序明确拒绝，不会用方管冒充。
+
+闭环要求偶数管壁螺旋，但偶数并不保证可解。近圆截面用有限搜索优化物理径向离散程度，并要求 (最大半径−最小半径)/平均半径不超过 0.5；这是较宽松的离散近似阈值，不是光滑圆柱保证。报告公开实际径向误差。
+
+搜索有预算限制，找不到方案时只能说“本次搜索未找到”，不能证明数学上绝无方案。某些封盖截面的奇偶平衡不能满足单 scaffold 路径；如默认路由模型下 w=h=4 的双盖会拒绝。可调整尺寸，不能自动更改用户参数。
+
+## 示例
 
 ```sh
-python scripts/template_design.py rectangle --num-helices 8 --bases-per-helix 128 -o output/plate
-python scripts/template_design.py square --num-helices 16 -o output/square
-python scripts/template_design.py long_strip --num-helices 4 --bases-per-helix 240 -o output/strip
-python scripts/template_design.py regular_tube --side-helices 4 --bases-per-helix 128 -o output/tube
+# 原有四螺旋束
+python scripts/template_design.py 4_helix_bundle -o output/bundle4
+
+# 32 螺旋近圆开口管
+python scripts/template_design.py near_circular_tube --num-helices 32 --lattice honeycomb -o output/round32
+
+# 3/4 边计数的矩形开口管
+python scripts/template_design.py rectangular_tube --width-helices 3 --height-helices 4 -o output/rect
+
+# 有底、上方开放的方形容器
+python scripts/template_design.py capped_square_tube --end-style one_cap -o output/cup
+
+# 固定顶部和底部的长方体
+python scripts/template_design.py closed_rectangular_box --width-helices 3 --height-helices 4 -o output/box
+
+# 统一参数化入口生成同样的矩形双盖结构
+python scripts/template_design.py parametric_tube --cross-section rectangle --end-style two_caps -o output/param_box
+
+# 24 螺旋束，不限定为 24 螺旋管
+python scripts/template_design.py n_helix_bundle --num-helices 24 -o output/bundle24
+
+python scripts/template_design.py --catalog
 ```
 
-当前不生成：box、triangle、L/T/cross、挖孔板、框架、任意曲面、多模块组装等。V1 中仅部分实现或只列名称的 16 个模板已明确设为不支持。不会把其他形状冒充它们。
+使用已有名称会拒绝覆盖。参数错误、搜索无解、预算不足或验证失败都返回非零退出码。
 
-## 结构与尺寸约定
+## 交付文件
 
-1. Scaffold 是一条连续线性链，依次穿过模板螺旋；每个跨螺旋连接都位于该方向的合法晶格位点。
-2. Staples 使用合法完整交叉连接，再切分成 20–60 nt 的独立线性寡核苷酸；每个连续结合域至少 8 nt。**V1 的“每个域 20–60 nt”已替换：域长度与整条 staple 长度不同。** 这是本版本的设计约束，不能替代结合温度或实验筛选。
-3. 交叉位点限制会使边缘略有台阶或缩进。报告列出每条 helix 的 `[start, end)` 占用区间、最大端部缩进、实际轴向跨度及估计包络尺寸。square 的尺寸比是请求包络的近似约束，并非光滑正方形保证。
-4. JSON 的空白数组区间会补齐为晶格周期的整数倍；避免同时被 21 和 32 整除导致晶格推断歧义。填充区不计作占用碱基。
-5. V2 不支持插入、删除（loop/skip）、非空旧式 loop 字段、单碱基孤立域或自定义路由。验证这些文件时明确失败，不会清除这些字段后假称验证通过。
-6. 完整环状 scaffold 可由验证器检查；生成器只产生线性 scaffold。生成器不分配 DNA 序列。
+- `.full.json`：用 cadnano 打开和编辑的主文件。
+- `.cando_compact.json`：所有解析后 JSON 字段与 full 完全一致，仅去掉空白。
+- `.report.json`：拓扑与几何验证、坐标、精确占用区间、管壁/总螺旋数、盖厚、链长和交叉数量。
 
-## 验证与回归测试
+`CANDO_INPUT_GENERATED` 只表示本地检查和 compact 保真通过。用户自行提交 CanDo，参见 [提交指南](references/cando-submission-guide.md)。
+
+## 验证和证据
 
 ```sh
 python scripts/test_design.py
-python scripts/template_design.py --validate output/bundle4.full.json --lattice honeycomb
+python scripts/test_v3.py
+python scripts/template_design.py --validate output/box.full.json --lattice square
+
+# 在独立安装 cadnano2 / PyQt6 的环境中：
+python scripts/check_cadnano.py output/box.full.json --lattice square
 ```
 
-本地检查包括：
+检查包括真实晶格邻接、方向与交叉相位、引用互反、单条 scaffold、20–60 nt staples、每个连续结合域至少 8 nt、配对覆盖、精确多区间占用、实际端盖截面、空腔无堵塞，以及要求的管壁/盖面 staple 接触。每个交叉只按有向 3′ 连接计一次。
 
-- JSON 类型、必需字段、数组长度、整数连接记录、唯一 helix ID/坐标、编号与坐标的奇偶性。
-- 以真实 `num` 建立映射；非连续编号和数组重新排序仍可正确验证。
-- 前后连接互为反向引用；引用存在；同 helix 不越级；链的方向正确。
-- 唯一连续 scaffold、长度预算、staple 分段和完整配对覆盖。
-- 基于 `(row, col)` 的真实晶格邻接、方向相关 offset，以及交叉的左右端类型；scaffold/staple 都检查。
-- 每条有向 3′ 跨螺旋连接只计一次；同时报告占用位置与寡核苷酸数量。
-- 导出与生成器预期坐标/区间一致；full/compact 所有解析后字段完全一致。
+`--validate` 单独检查输入拓扑。构型专属几何检查在生成流程中结合设计参数执行；不能从任意 JSON 自动认定其原始设计意图。插入/删除、非空旧式 loop、自定义路由仍不支持。
 
-可选的独立 cadnano 验证，在装有 `cadnano2`（PyQt6 版本）的独立环境中运行：
+可选安装 matplotlib 后，从导出的真实占用数据生成几何预览：
 
 ```sh
-python scripts/check_cadnano.py output/bundle4.full.json --lattice honeycomb
+python -m pip install matplotlib
+python scripts/preview_geometry.py output/box.full.json output/box.png
 ```
 
-此工具调用 cadnano 自身的 decoder、邻接与 crossover 表、encoder，比较重新导出后的连接数组，不使用生成器的规则表。支持的输出坐标避免触发 cadnano 的 SQ100 对话框。具体发布验证结果见 `VALIDATION.md`。
+预览是未松弛的晶格占用图，不是 CanDo/oxDNA 预测。发布证据见 [VALIDATION.md](VALIDATION.md)。
 
-## CanDo 与状态含义
+## 科学边界与迁移
 
-`CANDO_INPUT_GENERATED` 只表示本地结构检查通过并生成了保留全部拓扑的 compact 文件。它不是 CanDo 服务验收状态。
+结构检查和 cadnano 原生载入可证明已测样本的数据、连接和晶格约束；不能保证物理上无缠结、CanDo 收敛、折叠后的准确三维形状或实验稳定性。生成器不分配序列，也不自动执行 CanDo。浙江大学项目的 24 螺旋管可以作为参数参考，不能声称复刻其未公开路由。
 
-用户自行把 compact JSON 交给 CanDo，并选择报告中的 lattice。自动运行脚本不会上传或注册账号。参见 `references/cando-submission-guide.md`。
-
-本版证明范围是连接、晶格约束、cadnano 原生载入与往返一致性；不能保证 CanDo 收敛、预测三维形状完全符合期望、实际折叠或实验稳定性。所有输出的序列状态均为 `not_assigned`，实验状态均为 `EXPERIMENTALLY_UNVALIDATED`。
-
-## Python API 与 V1 迁移
-
-```python
-from template_design import create_design
-
-result = create_design(
-    shape_id="4_helix_bundle",
-    output_basename="output/bundle4",
-    bases_per_helix=210,
-)
-if result["design_status"] != "GENERATED":
-    raise RuntimeError(result["error"])
-```
-
-从外部脚本导入时将 `scripts/` 加入 Python 模块搜索路径，或从该目录调用。`validation_report` 在 V2 是含 `status/errors/counts` 的统一对象。V1 的宽松验证函数和 scaffold-stripped `.cando.json` 生成接口已移除；验证统一使用 `validation.validate()` 或 CLI。V1 的自定义路由/循环插入等未实现承诺不再保留。变化详见 `CHANGELOG.md`。
+Python API 保留 V2 create_design() 参数位置，新参数为可选关键字。新增构型 occupied_intervals 是按 helix ID 保存的区间列表，支持双盖不连续占用；V2 模板保留原先单区间报告。geometry_validation 在 V3 成功结果中必须为 PASS。详情见 [CHANGELOG.md](CHANGELOG.md) 和 [几何规则](references/v3-geometry.md)。

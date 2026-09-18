@@ -1,0 +1,453 @@
+[
+  {
+    "case": "rectangle",
+    "shape": "rectangle",
+    "parameters": {},
+    "lattice": "square",
+    "topology": "PASS",
+    "geometry": "V2 template",
+    "native_full": "PASS",
+    "native_compact": "PASS",
+    "scaffold_nt": 984
+  },
+  {
+    "case": "square",
+    "shape": "square",
+    "parameters": {},
+    "lattice": "square",
+    "topology": "PASS",
+    "geometry": "V2 template",
+    "native_full": "PASS",
+    "native_compact": "PASS",
+    "scaffold_nt": 1792
+  },
+  {
+    "case": "long_strip",
+    "shape": "long_strip",
+    "parameters": {},
+    "lattice": "square",
+    "topology": "PASS",
+    "geometry": "V2 template",
+    "native_full": "PASS",
+    "native_compact": "PASS",
+    "scaffold_nt": 492
+  },
+  {
+    "case": "planar_plate",
+    "shape": "planar_plate",
+    "parameters": {},
+    "lattice": "square",
+    "topology": "PASS",
+    "geometry": "V2 template",
+    "native_full": "PASS",
+    "native_compact": "PASS",
+    "scaffold_nt": 2952
+  },
+  {
+    "case": "2_helix_bundle",
+    "shape": "2_helix_bundle",
+    "parameters": {},
+    "lattice": "honeycomb",
+    "topology": "PASS",
+    "geometry": "V2 template",
+    "native_full": "PASS",
+    "native_compact": "PASS",
+    "scaffold_nt": 402
+  },
+  {
+    "case": "4_helix_bundle",
+    "shape": "4_helix_bundle",
+    "parameters": {},
+    "lattice": "honeycomb",
+    "topology": "PASS",
+    "geometry": "V2 template",
+    "native_full": "PASS",
+    "native_compact": "PASS",
+    "scaffold_nt": 794
+  },
+  {
+    "case": "6_helix_bundle",
+    "shape": "6_helix_bundle",
+    "parameters": {},
+    "lattice": "honeycomb",
+    "topology": "PASS",
+    "geometry": "V2 template",
+    "native_full": "PASS",
+    "native_compact": "PASS",
+    "scaffold_nt": 1206
+  },
+  {
+    "case": "regular_tube",
+    "shape": "regular_tube",
+    "parameters": {},
+    "lattice": "square",
+    "topology": "PASS",
+    "geometry": "V2 template",
+    "native_full": "PASS",
+    "native_compact": "PASS",
+    "scaffold_nt": 1936
+  },
+  {
+    "case": "parametric_tube",
+    "shape": "parametric_tube",
+    "parameters": {},
+    "lattice": "square",
+    "topology": "PASS",
+    "geometry": "PASS",
+    "native_full": "PASS",
+    "native_compact": "PASS",
+    "scaffold_nt": 4432
+  },
+  {
+    "case": "square_tube",
+    "shape": "square_tube",
+    "parameters": {},
+    "lattice": "square",
+    "topology": "PASS",
+    "geometry": "PASS",
+    "native_full": "PASS",
+    "native_compact": "PASS",
+    "scaffold_nt": 2224
+  },
+  {
+    "case": "rectangular_tube",
+    "shape": "rectangular_tube",
+    "parameters": {},
+    "lattice": "square",
+    "topology": "PASS",
+    "geometry": "PASS",
+    "native_full": "PASS",
+    "native_compact": "PASS",
+    "scaffold_nt": 2576
+  },
+  {
+    "case": "polygonal_tube",
+    "shape": "polygonal_tube",
+    "parameters": {},
+    "lattice": "square",
+    "topology": "PASS",
+    "geometry": "PASS",
+    "native_full": "PASS",
+    "native_compact": "PASS",
+    "scaffold_nt": 4432
+  },
+  {
+    "case": "near_circular_tube",
+    "shape": "near_circular_tube",
+    "parameters": {},
+    "lattice": "square",
+    "topology": "PASS",
+    "geometry": "PASS",
+    "native_full": "PASS",
+    "native_compact": "PASS",
+    "scaffold_nt": 4432
+  },
+  {
+    "case": "capped_square_tube",
+    "shape": "capped_square_tube",
+    "parameters": {},
+    "lattice": "square",
+    "topology": "PASS",
+    "geometry": "PASS",
+    "native_full": "PASS",
+    "native_compact": "PASS",
+    "scaffold_nt": 5516
+  },
+  {
+    "case": "capped_rectangular_tube",
+    "shape": "capped_rectangular_tube",
+    "parameters": {},
+    "lattice": "square",
+    "topology": "PASS",
+    "geometry": "PASS",
+    "native_full": "PASS",
+    "native_compact": "PASS",
+    "scaffold_nt": 6734
+  },
+  {
+    "case": "closed_rectangular_box",
+    "shape": "closed_rectangular_box",
+    "parameters": {},
+    "lattice": "square",
+    "topology": "PASS",
+    "geometry": "PASS",
+    "native_full": "PASS",
+    "native_compact": "PASS",
+    "scaffold_nt": 6734
+  },
+  {
+    "case": "n_helix_bundle",
+    "shape": "n_helix_bundle",
+    "parameters": {},
+    "lattice": "honeycomb",
+    "topology": "PASS",
+    "geometry": "PASS",
+    "native_full": "PASS",
+    "native_compact": "PASS",
+    "scaffold_nt": 2368
+  },
+  {
+    "case": "round_square_8",
+    "shape": "near_circular_tube",
+    "parameters": {
+      "user_lattice": "square",
+      "num_helices": 8
+    },
+    "lattice": "square",
+    "topology": "PASS",
+    "geometry": "PASS",
+    "native_full": "PASS",
+    "native_compact": "PASS",
+    "scaffold_nt": 1488
+  },
+  {
+    "case": "round_square_12",
+    "shape": "near_circular_tube",
+    "parameters": {
+      "user_lattice": "square",
+      "num_helices": 12
+    },
+    "lattice": "square",
+    "topology": "PASS",
+    "geometry": "PASS",
+    "native_full": "PASS",
+    "native_compact": "PASS",
+    "scaffold_nt": 2224
+  },
+  {
+    "case": "round_square_16",
+    "shape": "near_circular_tube",
+    "parameters": {
+      "user_lattice": "square",
+      "num_helices": 16
+    },
+    "lattice": "square",
+    "topology": "PASS",
+    "geometry": "PASS",
+    "native_full": "PASS",
+    "native_compact": "PASS",
+    "scaffold_nt": 2960
+  },
+  {
+    "case": "round_square_32",
+    "shape": "near_circular_tube",
+    "parameters": {
+      "user_lattice": "square",
+      "num_helices": 32
+    },
+    "lattice": "square",
+    "topology": "PASS",
+    "geometry": "PASS",
+    "native_full": "PASS",
+    "native_compact": "PASS",
+    "scaffold_nt": 5904
+  },
+  {
+    "case": "round_honeycomb_6",
+    "shape": "near_circular_tube",
+    "parameters": {
+      "user_lattice": "honeycomb",
+      "num_helices": 6
+    },
+    "lattice": "honeycomb",
+    "topology": "PASS",
+    "geometry": "PASS",
+    "native_full": "PASS",
+    "native_compact": "PASS",
+    "scaffold_nt": 1206
+  },
+  {
+    "case": "round_honeycomb_18",
+    "shape": "near_circular_tube",
+    "parameters": {
+      "user_lattice": "honeycomb",
+      "num_helices": 18
+    },
+    "lattice": "honeycomb",
+    "topology": "PASS",
+    "geometry": "PASS",
+    "native_full": "PASS",
+    "native_compact": "PASS",
+    "scaffold_nt": 3598
+  },
+  {
+    "case": "round_honeycomb_24",
+    "shape": "near_circular_tube",
+    "parameters": {
+      "user_lattice": "honeycomb",
+      "num_helices": 24
+    },
+    "lattice": "honeycomb",
+    "topology": "PASS",
+    "geometry": "PASS",
+    "native_full": "PASS",
+    "native_compact": "PASS",
+    "scaffold_nt": 4794
+  },
+  {
+    "case": "round_honeycomb_32",
+    "shape": "near_circular_tube",
+    "parameters": {
+      "user_lattice": "honeycomb",
+      "num_helices": 32
+    },
+    "lattice": "honeycomb",
+    "topology": "PASS",
+    "geometry": "PASS",
+    "native_full": "PASS",
+    "native_compact": "PASS",
+    "scaffold_nt": 6388
+  },
+  {
+    "case": "bundle_square_8",
+    "shape": "n_helix_bundle",
+    "parameters": {
+      "user_lattice": "square",
+      "num_helices": 8
+    },
+    "lattice": "square",
+    "topology": "PASS",
+    "geometry": "PASS",
+    "native_full": "PASS",
+    "native_compact": "PASS",
+    "scaffold_nt": 1494
+  },
+  {
+    "case": "bundle_square_16",
+    "shape": "n_helix_bundle",
+    "parameters": {
+      "user_lattice": "square",
+      "num_helices": 16
+    },
+    "lattice": "square",
+    "topology": "PASS",
+    "geometry": "PASS",
+    "native_full": "PASS",
+    "native_compact": "PASS",
+    "scaffold_nt": 2992
+  },
+  {
+    "case": "bundle_square_24",
+    "shape": "n_helix_bundle",
+    "parameters": {
+      "user_lattice": "square",
+      "num_helices": 24
+    },
+    "lattice": "square",
+    "topology": "PASS",
+    "geometry": "PASS",
+    "native_full": "PASS",
+    "native_compact": "PASS",
+    "scaffold_nt": 4462
+  },
+  {
+    "case": "bundle_honeycomb_8",
+    "shape": "n_helix_bundle",
+    "parameters": {
+      "user_lattice": "honeycomb",
+      "num_helices": 8
+    },
+    "lattice": "honeycomb",
+    "topology": "PASS",
+    "geometry": "PASS",
+    "native_full": "PASS",
+    "native_compact": "PASS",
+    "scaffold_nt": 1570
+  },
+  {
+    "case": "bundle_honeycomb_16",
+    "shape": "n_helix_bundle",
+    "parameters": {
+      "user_lattice": "honeycomb",
+      "num_helices": 16
+    },
+    "lattice": "honeycomb",
+    "topology": "PASS",
+    "geometry": "PASS",
+    "native_full": "PASS",
+    "native_compact": "PASS",
+    "scaffold_nt": 3166
+  },
+  {
+    "case": "bundle_honeycomb_24",
+    "shape": "n_helix_bundle",
+    "parameters": {
+      "user_lattice": "honeycomb",
+      "num_helices": 24
+    },
+    "lattice": "honeycomb",
+    "topology": "PASS",
+    "geometry": "PASS",
+    "native_full": "PASS",
+    "native_compact": "PASS",
+    "scaffold_nt": 4740
+  },
+  {
+    "case": "capped_square_tube_one_cap",
+    "shape": "capped_square_tube",
+    "parameters": {
+      "end_style": "one_cap"
+    },
+    "lattice": "square",
+    "topology": "PASS",
+    "geometry": "PASS",
+    "native_full": "PASS",
+    "native_compact": "PASS",
+    "scaffold_nt": 5024
+  },
+  {
+    "case": "capped_rectangular_tube_one_cap",
+    "shape": "capped_rectangular_tube",
+    "parameters": {
+      "end_style": "one_cap"
+    },
+    "lattice": "square",
+    "topology": "PASS",
+    "geometry": "PASS",
+    "native_full": "PASS",
+    "native_compact": "PASS",
+    "scaffold_nt": 6000
+  },
+  {
+    "case": "polygon_honeycomb_30",
+    "shape": "polygonal_tube",
+    "parameters": {
+      "user_lattice": "honeycomb",
+      "num_helices": 30
+    },
+    "lattice": "honeycomb",
+    "topology": "PASS",
+    "geometry": "PASS",
+    "native_full": "PASS",
+    "native_compact": "PASS",
+    "scaffold_nt": 5990
+  },
+  {
+    "case": "parametric_rect_caps",
+    "shape": "parametric_tube",
+    "parameters": {
+      "cross_section": "rectangle",
+      "end_style": "two_caps"
+    },
+    "lattice": "square",
+    "topology": "PASS",
+    "geometry": "PASS",
+    "native_full": "PASS",
+    "native_compact": "PASS",
+    "scaffold_nt": 6734
+  },
+  {
+    "case": "round_caps",
+    "shape": "near_circular_tube",
+    "parameters": {
+      "num_helices": 12,
+      "end_style": "two_caps"
+    },
+    "lattice": "square",
+    "topology": "PASS",
+    "geometry": "PASS",
+    "native_full": "PASS",
+    "native_compact": "PASS",
+    "scaffold_nt": 5516
+  }
+]

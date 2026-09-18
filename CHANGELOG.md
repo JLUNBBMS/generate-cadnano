@@ -38,3 +38,13 @@
 
 This release establishes local format/routing/lattice correctness for tested
 templates. It makes no claims about CanDo acceptance or experimental folding.
+# 3.0.0 — 2026-09-17
+
+- Preserve all eight V2 template routes and add nine V3 entry points.
+- Add exact-count lattice-cycle search, rectangular controls, symmetric honeycomb hexagonal shells and compact variable-count bundles.
+- Add fixed-cap containers using interior parallel-helix blocks with a central cavity and a single scaffold routed through all occupied segments.
+- Schedule staple contacts globally; validate disjoint cap intervals, actual cap occupancy, lumen clearance and contact reinforcement.
+- Compact physical helix IDs by parity for native cadnano roundtrip compatibility.
+- Add geometry previews, V3 negative tests and independent native integration evidence.
+- Bound search explicitly. Not every integer, lattice, cap thickness or polygon is feasible. Polygon mode supports square/4 and honeycomb/6; no arbitrary triangle or hinged lids.
+- New-template reports distinguish wall count from total helix columns. Their occupied_intervals field maps helix IDs to interval lists; legacy template reports retain V2 format.

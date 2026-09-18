@@ -1,20 +1,23 @@
 ---
 name: generate-cadnano
-description: "Generate lattice-aware cadnano v2 JSON for fixed DNA origami plate, helix-bundle and square-tube templates; validate exported routing and prepare topology-preserving compact files for manual CanDo submission. Reject unsupported shapes and invalid routing."
+description: "Generate and validate cadnano JSON for DNA origami plates, variable-count helix bundles, parameterized lattice tubes and thick fixed-cap containers; prepare topology-preserving files for manual CanDo submission."
 metadata:
-  version: "2.0.0"
+  version: "3.0.0"
 ---
 
-# Generate Cadnano V2
+# Generate Cadnano V3
 
 Use `README.md` for supported templates, dimensions, examples and limitations.
 This skill generates a locally validated design, not a simulated 3D structure.
 
 ## Workflow
 
-1. Identify the requested shape and dimensions. The only implemented templates
-   are `rectangle`, `square`, `long_strip`, `planar_plate`, `2_helix_bundle`,
+1. Identify the requested shape and dimensions. Retain the eight V2 templates
+   `rectangle`, `square`, `long_strip`, `planar_plate`, `2_helix_bundle`,
    `4_helix_bundle`, `6_helix_bundle`, and square-section `regular_tube`.
+   V3 adds `parametric_tube`, `square_tube`, `rectangular_tube`, `polygonal_tube`,
+   `near_circular_tube`, `capped_square_tube`, `capped_rectangular_tube`,
+   `closed_rectangular_box`, and `n_helix_bundle`.
    Unsupported shapes must be identified explicitly. Do not adapt the Python
    template ad hoc, invent custom routing, or substitute shapes without consent.
 2. Collect only missing choices: template, helix count or tube side count,
@@ -23,6 +26,12 @@ This skill generates a locally validated design, not a simulated 3D structure.
    envelope; transverse width depends on lattice and helix count. Convert nm
    to axial bp using approximately 0.34 nm/bp and disclose rounding.
 3. Read `references/lattice-rules.md` before interpreting crossover geometry.
+   For a V3 template, also read `references/v3-geometry.md`. Fixed caps are
+   thick parallel-helix blocks, not folding sheets or hinged lids. Explain the
+   default 128-bp cap thickness (about 43.52 nm) and actual lumen dimensions.
+   Tube num_helices counts wall columns; caps add interior columns. Polygon
+   mode currently supports square/4 and honeycomb/6, not arbitrary triangles.
+   Not every even count is feasible. Report bounded-search failure faithfully.
    Run `python scripts/check_deps.py`. Install dependencies from
    `requirements.txt` if required and authorized in the current workflow.
 4. Run `scripts/template_design.py` with the chosen template and output basename,
@@ -31,6 +40,7 @@ This skill generates a locally validated design, not a simulated 3D structure.
    contradictions must remain errors; never silently change them.
 5. Require exit code zero, `design_status=GENERATED`, and a passing
    `validation_report` before presenting JSON as a validated design.
+   New templates also require `geometry_validation.status=PASS`.
    Failure means report the specific reason and adjust parameters with the user;
    do not bypass the gate or write routing arrays by hand.
 6. Inspect the report's actual coordinates, occupied intervals, end insets,
@@ -38,6 +48,11 @@ This skill generates a locally validated design, not a simulated 3D structure.
    differences from requested dimensions. Templates have lattice-constrained
    stepped ends. In particular, a honeycomb four-helix bundle has an open
    neighbor chain; it is not a closed four-helix ring.
+   For V3 inspect wall_num_helices, total num_helices, cap thickness, interval
+   lists and radial_spread_fraction. A near-circular search is approximate and
+   does not prove global optimality. Never claim an unprovided reference design
+   was reproduced base-for-base. preview_geometry.py is an optional ideal
+   occupancy plot requiring matplotlib; it is not a CanDo/oxDNA prediction.
 7. Deliver `.full.json`, `.cando_compact.json`, `.report.json`. Full is the
    editable master; compact preserves every parsed JSON field. Regenerate and
    revalidate compact after edits to the master. Existing output names are
@@ -49,8 +64,9 @@ This skill generates a locally validated design, not a simulated 3D structure.
 ## Existing-file validation
 
 Run `python scripts/template_design.py --validate INPUT.json --lattice LATTICE`.
-An explicit lattice is required. `validation.validate()` is the same gate used
-for generation. V2 intentionally rejects nonzero loop/skip and nonempty legacy
+An explicit lattice is required. `validation.validate()` is the topology gate used
+for generation; V3 adds a separate intent-based shape gate during generation.
+V3 intentionally rejects nonzero loop/skip and nonempty legacy
 loop fields. Preserve the input and report the unsupported feature.
 
 ## Status and evidence
@@ -78,6 +94,7 @@ results, sequence assignment, experimental success or private account details.
 
 If asked to modify this skill, use meaningful positive and corrupted-input
 regression tests in `scripts/test_design.py`. Test generated JSON, not only
-in-memory scadnano objects. Repeat the independent cadnano2 integration check
+in-memory scadnano objects. V3 tests are in `scripts/test_v3.py`. Repeat the
+independent cadnano2 integration check
 after changing geometry. Keep the README and supported catalog consistent;
 do not call unimplemented shapes supported.

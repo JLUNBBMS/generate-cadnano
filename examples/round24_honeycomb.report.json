@@ -1,0 +1,987 @@
+{
+  "version": "3.0.0",
+  "design_status": "GENERATED",
+  "validation_status": "CANDO_INPUT_GENERATED",
+  "experimental_status": "EXPERIMENTALLY_UNVALIDATED",
+  "submission_status": "NOT_SUBMITTED",
+  "sequence_status": "not_assigned",
+  "full_path": "examples\\round24_honeycomb.full.json",
+  "cando_compact_path": "examples\\round24_honeycomb.cando_compact.json",
+  "lattice_type": "honeycomb",
+  "lattice_reason": "user selection",
+  "geometry_validation": {
+    "status": "PASS",
+    "errors": [],
+    "wall_cycle_checked": true,
+    "cap_volume_checked": false,
+    "interpretation": "Ideal parallel-helix lattice geometry; no relaxation or experimental inference"
+  },
+  "validation_report": {
+    "status": "PASS",
+    "errors": [],
+    "counts": {
+      "scaf": {
+        "occupied_bases": 4794,
+        "oligos": 1,
+        "circular_oligos": 0,
+        "physical_crossovers": 23,
+        "oligo_lengths": [
+          4794
+        ]
+      },
+      "stap": {
+        "occupied_bases": 4794,
+        "oligos": 150,
+        "circular_oligos": 0,
+        "physical_crossovers": 106,
+        "oligo_lengths": [
+          20,
+          22,
+          24,
+          24,
+          25,
+          26,
+          26,
+          26,
+          26,
+          26,
+          27,
+          27,
+          27,
+          27,
+          27,
+          27,
+          29,
+          29,
+          30,
+          30,
+          30,
+          30,
+          30,
+          30,
+          30,
+          30,
+          30,
+          30,
+          30,
+          30,
+          30,
+          30,
+          30,
+          30,
+          30,
+          30,
+          30,
+          30,
+          30,
+          30,
+          30,
+          30,
+          30,
+          31,
+          31,
+          31,
+          31,
+          31,
+          31,
+          31,
+          31,
+          31,
+          31,
+          31,
+          31,
+          31,
+          31,
+          31,
+          31,
+          31,
+          31,
+          31,
+          31,
+          31,
+          31,
+          31,
+          31,
+          31,
+          31,
+          31,
+          31,
+          31,
+          31,
+          31,
+          31,
+          31,
+          31,
+          31,
+          31,
+          31,
+          31,
+          31,
+          31,
+          32,
+          32,
+          32,
+          32,
+          32,
+          32,
+          32,
+          32,
+          32,
+          32,
+          32,
+          32,
+          32,
+          32,
+          32,
+          33,
+          33,
+          33,
+          33,
+          33,
+          33,
+          33,
+          33,
+          33,
+          33,
+          34,
+          34,
+          34,
+          34,
+          34,
+          35,
+          35,
+          35,
+          35,
+          35,
+          35,
+          35,
+          35,
+          35,
+          36,
+          36,
+          36,
+          36,
+          36,
+          36,
+          36,
+          36,
+          36,
+          36,
+          36,
+          36,
+          36,
+          36,
+          36,
+          36,
+          36,
+          36,
+          36,
+          38,
+          38,
+          38,
+          38,
+          38,
+          38,
+          38,
+          42,
+          52
+        ]
+      },
+      "vstrands": 24,
+      "paired_positions": 4794
+    }
+  },
+  "design_summary": {
+    "shape_id": "near_circular_tube",
+    "cross_section": "near_circular",
+    "end_style": "open",
+    "lattice_type": "honeycomb",
+    "num_helices": 24,
+    "wall_num_helices": 24,
+    "cap_interior_helix_columns": 0,
+    "bases_per_helix": 210,
+    "cap_length_bp": 0,
+    "nominal_cap_thickness_nm": 0,
+    "nominal_lumen_length_bp": 210,
+    "total_scaffold_nt": 4794,
+    "num_staples": 150,
+    "storage_length_bp": 210,
+    "wall_coordinates_row_col": [
+      [
+        2,
+        5
+      ],
+      [
+        2,
+        6
+      ],
+      [
+        2,
+        7
+      ],
+      [
+        2,
+        8
+      ],
+      [
+        2,
+        9
+      ],
+      [
+        3,
+        9
+      ],
+      [
+        3,
+        10
+      ],
+      [
+        4,
+        10
+      ],
+      [
+        4,
+        11
+      ],
+      [
+        5,
+        11
+      ],
+      [
+        5,
+        10
+      ],
+      [
+        6,
+        10
+      ],
+      [
+        6,
+        9
+      ],
+      [
+        6,
+        8
+      ],
+      [
+        6,
+        7
+      ],
+      [
+        6,
+        6
+      ],
+      [
+        6,
+        5
+      ],
+      [
+        6,
+        4
+      ],
+      [
+        5,
+        4
+      ],
+      [
+        5,
+        3
+      ],
+      [
+        4,
+        3
+      ],
+      [
+        4,
+        4
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        3,
+        5
+      ]
+    ],
+    "interior_coordinates_row_col": [
+      [
+        3,
+        6
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        3,
+        8
+      ],
+      [
+        4,
+        5
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        4,
+        7
+      ],
+      [
+        4,
+        8
+      ],
+      [
+        4,
+        9
+      ],
+      [
+        5,
+        5
+      ],
+      [
+        5,
+        6
+      ],
+      [
+        5,
+        7
+      ],
+      [
+        5,
+        8
+      ],
+      [
+        5,
+        9
+      ]
+    ],
+    "coordinates_row_col": [
+      [
+        2,
+        6
+      ],
+      [
+        2,
+        7
+      ],
+      [
+        2,
+        8
+      ],
+      [
+        2,
+        9
+      ],
+      [
+        3,
+        9
+      ],
+      [
+        3,
+        10
+      ],
+      [
+        4,
+        10
+      ],
+      [
+        4,
+        11
+      ],
+      [
+        5,
+        11
+      ],
+      [
+        5,
+        10
+      ],
+      [
+        6,
+        10
+      ],
+      [
+        6,
+        9
+      ],
+      [
+        6,
+        8
+      ],
+      [
+        6,
+        7
+      ],
+      [
+        6,
+        6
+      ],
+      [
+        6,
+        5
+      ],
+      [
+        6,
+        4
+      ],
+      [
+        5,
+        4
+      ],
+      [
+        5,
+        3
+      ],
+      [
+        4,
+        3
+      ],
+      [
+        4,
+        4
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        2,
+        5
+      ]
+    ],
+    "helix_ids": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23
+    ],
+    "occupied_intervals": {
+      "0": [
+        [
+          0,
+          201
+        ]
+      ],
+      "1": [
+        [
+          5,
+          201
+        ]
+      ],
+      "2": [
+        [
+          5,
+          201
+        ]
+      ],
+      "3": [
+        [
+          9,
+          201
+        ]
+      ],
+      "4": [
+        [
+          9,
+          201
+        ]
+      ],
+      "5": [
+        [
+          9,
+          201
+        ]
+      ],
+      "6": [
+        [
+          9,
+          201
+        ]
+      ],
+      "7": [
+        [
+          9,
+          201
+        ]
+      ],
+      "8": [
+        [
+          9,
+          205
+        ]
+      ],
+      "9": [
+        [
+          9,
+          205
+        ]
+      ],
+      "10": [
+        [
+          9,
+          205
+        ]
+      ],
+      "11": [
+        [
+          2,
+          205
+        ]
+      ],
+      "12": [
+        [
+          2,
+          205
+        ]
+      ],
+      "13": [
+        [
+          2,
+          205
+        ]
+      ],
+      "14": [
+        [
+          2,
+          205
+        ]
+      ],
+      "15": [
+        [
+          2,
+          205
+        ]
+      ],
+      "16": [
+        [
+          2,
+          208
+        ]
+      ],
+      "17": [
+        [
+          2,
+          208
+        ]
+      ],
+      "18": [
+        [
+          2,
+          208
+        ]
+      ],
+      "19": [
+        [
+          5,
+          208
+        ]
+      ],
+      "20": [
+        [
+          5,
+          208
+        ]
+      ],
+      "21": [
+        [
+          5,
+          208
+        ]
+      ],
+      "22": [
+        [
+          5,
+          208
+        ]
+      ],
+      "23": [
+        [
+          0,
+          208
+        ]
+      ]
+    },
+    "segment_route": [
+      {
+        "helix": 0,
+        "region": "wall",
+        "interval": [
+          0,
+          201
+        ]
+      },
+      {
+        "helix": 1,
+        "region": "wall",
+        "interval": [
+          5,
+          201
+        ]
+      },
+      {
+        "helix": 2,
+        "region": "wall",
+        "interval": [
+          5,
+          201
+        ]
+      },
+      {
+        "helix": 3,
+        "region": "wall",
+        "interval": [
+          9,
+          201
+        ]
+      },
+      {
+        "helix": 4,
+        "region": "wall",
+        "interval": [
+          9,
+          201
+        ]
+      },
+      {
+        "helix": 5,
+        "region": "wall",
+        "interval": [
+          9,
+          201
+        ]
+      },
+      {
+        "helix": 6,
+        "region": "wall",
+        "interval": [
+          9,
+          201
+        ]
+      },
+      {
+        "helix": 7,
+        "region": "wall",
+        "interval": [
+          9,
+          201
+        ]
+      },
+      {
+        "helix": 8,
+        "region": "wall",
+        "interval": [
+          9,
+          205
+        ]
+      },
+      {
+        "helix": 9,
+        "region": "wall",
+        "interval": [
+          9,
+          205
+        ]
+      },
+      {
+        "helix": 10,
+        "region": "wall",
+        "interval": [
+          9,
+          205
+        ]
+      },
+      {
+        "helix": 11,
+        "region": "wall",
+        "interval": [
+          2,
+          205
+        ]
+      },
+      {
+        "helix": 12,
+        "region": "wall",
+        "interval": [
+          2,
+          205
+        ]
+      },
+      {
+        "helix": 13,
+        "region": "wall",
+        "interval": [
+          2,
+          205
+        ]
+      },
+      {
+        "helix": 14,
+        "region": "wall",
+        "interval": [
+          2,
+          205
+        ]
+      },
+      {
+        "helix": 15,
+        "region": "wall",
+        "interval": [
+          2,
+          205
+        ]
+      },
+      {
+        "helix": 16,
+        "region": "wall",
+        "interval": [
+          2,
+          208
+        ]
+      },
+      {
+        "helix": 17,
+        "region": "wall",
+        "interval": [
+          2,
+          208
+        ]
+      },
+      {
+        "helix": 18,
+        "region": "wall",
+        "interval": [
+          2,
+          208
+        ]
+      },
+      {
+        "helix": 19,
+        "region": "wall",
+        "interval": [
+          5,
+          208
+        ]
+      },
+      {
+        "helix": 20,
+        "region": "wall",
+        "interval": [
+          5,
+          208
+        ]
+      },
+      {
+        "helix": 21,
+        "region": "wall",
+        "interval": [
+          5,
+          208
+        ]
+      },
+      {
+        "helix": 22,
+        "region": "wall",
+        "interval": [
+          5,
+          208
+        ]
+      },
+      {
+        "helix": 23,
+        "region": "wall",
+        "interval": [
+          0,
+          208
+        ]
+      }
+    ],
+    "required_staple_contacts": [
+      [
+        0,
+        1,
+        5,
+        201
+      ],
+      [
+        0,
+        23,
+        0,
+        201
+      ],
+      [
+        1,
+        2,
+        5,
+        201
+      ],
+      [
+        2,
+        3,
+        9,
+        201
+      ],
+      [
+        3,
+        4,
+        9,
+        201
+      ],
+      [
+        4,
+        5,
+        9,
+        201
+      ],
+      [
+        5,
+        6,
+        9,
+        201
+      ],
+      [
+        6,
+        7,
+        9,
+        201
+      ],
+      [
+        7,
+        8,
+        9,
+        201
+      ],
+      [
+        8,
+        9,
+        9,
+        205
+      ],
+      [
+        9,
+        10,
+        9,
+        205
+      ],
+      [
+        10,
+        11,
+        9,
+        205
+      ],
+      [
+        11,
+        12,
+        2,
+        205
+      ],
+      [
+        12,
+        13,
+        2,
+        205
+      ],
+      [
+        13,
+        14,
+        2,
+        205
+      ],
+      [
+        14,
+        15,
+        2,
+        205
+      ],
+      [
+        15,
+        16,
+        2,
+        205
+      ],
+      [
+        16,
+        17,
+        2,
+        208
+      ],
+      [
+        17,
+        18,
+        2,
+        208
+      ],
+      [
+        18,
+        19,
+        5,
+        208
+      ],
+      [
+        19,
+        20,
+        5,
+        208
+      ],
+      [
+        20,
+        21,
+        5,
+        208
+      ],
+      [
+        21,
+        22,
+        5,
+        208
+      ],
+      [
+        22,
+        23,
+        5,
+        208
+      ]
+    ],
+    "nominal_envelope_nm": {
+      "x": 19.821,
+      "y": 18.75,
+      "z": 71.4
+    },
+    "radial_spread_fraction": 0.3019,
+    "boundary_note": "Ends are lattice-stepped; fixed caps are filled parallel-helix blocks, not hinged sheets or a watertight membrane.",
+    "search_note": "Deterministic bounded search; near-circular means low radial spread among explored candidates, not a global optimum."
+  },
+  "report_path": "examples\\round24_honeycomb.report.json",
+  "compact_preservation": {
+    "check": "compact_preservation",
+    "status": "PASS",
+    "message": "All parsed JSON fields identical"
+  },
+  "scaffold_length": 7249
+}

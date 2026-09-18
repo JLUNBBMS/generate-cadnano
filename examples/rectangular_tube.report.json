@@ -1,0 +1,596 @@
+{
+  "version": "3.0.0",
+  "design_status": "GENERATED",
+  "validation_status": "CANDO_INPUT_GENERATED",
+  "experimental_status": "EXPERIMENTALLY_UNVALIDATED",
+  "submission_status": "NOT_SUBMITTED",
+  "sequence_status": "not_assigned",
+  "full_path": "examples\\rectangular_tube.full.json",
+  "cando_compact_path": "examples\\rectangular_tube.cando_compact.json",
+  "lattice_type": "square",
+  "lattice_reason": "template default",
+  "geometry_validation": {
+    "status": "PASS",
+    "errors": [],
+    "wall_cycle_checked": true,
+    "cap_volume_checked": false,
+    "interpretation": "Ideal parallel-helix lattice geometry; no relaxation or experimental inference"
+  },
+  "validation_report": {
+    "status": "PASS",
+    "errors": [],
+    "counts": {
+      "scaf": {
+        "occupied_bases": 2576,
+        "oligos": 1,
+        "circular_oligos": 0,
+        "physical_crossovers": 13,
+        "oligo_lengths": [
+          2576
+        ]
+      },
+      "stap": {
+        "occupied_bases": 2576,
+        "oligos": 77,
+        "circular_oligos": 0,
+        "physical_crossovers": 76,
+        "oligo_lengths": [
+          22,
+          24,
+          24,
+          29,
+          29,
+          29,
+          29,
+          29,
+          30,
+          30,
+          30,
+          30,
+          30,
+          30,
+          30,
+          30,
+          30,
+          30,
+          30,
+          30,
+          30,
+          30,
+          30,
+          30,
+          30,
+          30,
+          32,
+          32,
+          32,
+          32,
+          32,
+          32,
+          32,
+          32,
+          32,
+          32,
+          32,
+          32,
+          32,
+          32,
+          32,
+          34,
+          34,
+          34,
+          34,
+          34,
+          34,
+          35,
+          35,
+          35,
+          35,
+          35,
+          35,
+          35,
+          35,
+          35,
+          35,
+          35,
+          35,
+          35,
+          36,
+          36,
+          36,
+          36,
+          36,
+          36,
+          37,
+          37,
+          37,
+          38,
+          40,
+          40,
+          42,
+          42,
+          45,
+          54,
+          54
+        ]
+      },
+      "vstrands": 14,
+      "paired_positions": 2576
+    }
+  },
+  "design_summary": {
+    "shape_id": "rectangular_tube",
+    "cross_section": "rectangle",
+    "end_style": "open",
+    "lattice_type": "square",
+    "num_helices": 14,
+    "wall_num_helices": 14,
+    "cap_interior_helix_columns": 0,
+    "bases_per_helix": 192,
+    "cap_length_bp": 0,
+    "nominal_cap_thickness_nm": 0,
+    "nominal_lumen_length_bp": 192,
+    "total_scaffold_nt": 2576,
+    "num_staples": 77,
+    "storage_length_bp": 192,
+    "wall_coordinates_row_col": [
+      [
+        2,
+        2
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        4,
+        5
+      ],
+      [
+        5,
+        5
+      ],
+      [
+        6,
+        5
+      ],
+      [
+        6,
+        4
+      ],
+      [
+        6,
+        3
+      ],
+      [
+        6,
+        2
+      ],
+      [
+        5,
+        2
+      ],
+      [
+        4,
+        2
+      ],
+      [
+        3,
+        2
+      ]
+    ],
+    "interior_coordinates_row_col": [
+      [
+        3,
+        3
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        4,
+        3
+      ],
+      [
+        4,
+        4
+      ],
+      [
+        5,
+        3
+      ],
+      [
+        5,
+        4
+      ]
+    ],
+    "coordinates_row_col": [
+      [
+        2,
+        2
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        4,
+        5
+      ],
+      [
+        5,
+        5
+      ],
+      [
+        6,
+        5
+      ],
+      [
+        6,
+        4
+      ],
+      [
+        6,
+        3
+      ],
+      [
+        6,
+        2
+      ],
+      [
+        5,
+        2
+      ],
+      [
+        4,
+        2
+      ],
+      [
+        3,
+        2
+      ]
+    ],
+    "helix_ids": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13
+    ],
+    "occupied_intervals": {
+      "0": [
+        [
+          0,
+          187
+        ]
+      ],
+      "1": [
+        [
+          0,
+          187
+        ]
+      ],
+      "2": [
+        [
+          0,
+          187
+        ]
+      ],
+      "3": [
+        [
+          3,
+          187
+        ]
+      ],
+      "4": [
+        [
+          3,
+          189
+        ]
+      ],
+      "5": [
+        [
+          3,
+          189
+        ]
+      ],
+      "6": [
+        [
+          3,
+          189
+        ]
+      ],
+      "7": [
+        [
+          5,
+          189
+        ]
+      ],
+      "8": [
+        [
+          5,
+          192
+        ]
+      ],
+      "9": [
+        [
+          5,
+          192
+        ]
+      ],
+      "10": [
+        [
+          5,
+          184
+        ]
+      ],
+      "11": [
+        [
+          8,
+          184
+        ]
+      ],
+      "12": [
+        [
+          8,
+          184
+        ]
+      ],
+      "13": [
+        [
+          0,
+          184
+        ]
+      ]
+    },
+    "segment_route": [
+      {
+        "helix": 0,
+        "region": "wall",
+        "interval": [
+          0,
+          187
+        ]
+      },
+      {
+        "helix": 1,
+        "region": "wall",
+        "interval": [
+          0,
+          187
+        ]
+      },
+      {
+        "helix": 2,
+        "region": "wall",
+        "interval": [
+          0,
+          187
+        ]
+      },
+      {
+        "helix": 3,
+        "region": "wall",
+        "interval": [
+          3,
+          187
+        ]
+      },
+      {
+        "helix": 4,
+        "region": "wall",
+        "interval": [
+          3,
+          189
+        ]
+      },
+      {
+        "helix": 5,
+        "region": "wall",
+        "interval": [
+          3,
+          189
+        ]
+      },
+      {
+        "helix": 6,
+        "region": "wall",
+        "interval": [
+          3,
+          189
+        ]
+      },
+      {
+        "helix": 7,
+        "region": "wall",
+        "interval": [
+          5,
+          189
+        ]
+      },
+      {
+        "helix": 8,
+        "region": "wall",
+        "interval": [
+          5,
+          192
+        ]
+      },
+      {
+        "helix": 9,
+        "region": "wall",
+        "interval": [
+          5,
+          192
+        ]
+      },
+      {
+        "helix": 10,
+        "region": "wall",
+        "interval": [
+          5,
+          184
+        ]
+      },
+      {
+        "helix": 11,
+        "region": "wall",
+        "interval": [
+          8,
+          184
+        ]
+      },
+      {
+        "helix": 12,
+        "region": "wall",
+        "interval": [
+          8,
+          184
+        ]
+      },
+      {
+        "helix": 13,
+        "region": "wall",
+        "interval": [
+          0,
+          184
+        ]
+      }
+    ],
+    "required_staple_contacts": [
+      [
+        0,
+        1,
+        0,
+        187
+      ],
+      [
+        0,
+        13,
+        0,
+        184
+      ],
+      [
+        1,
+        2,
+        0,
+        187
+      ],
+      [
+        2,
+        3,
+        3,
+        187
+      ],
+      [
+        3,
+        4,
+        3,
+        187
+      ],
+      [
+        4,
+        5,
+        3,
+        189
+      ],
+      [
+        5,
+        6,
+        3,
+        189
+      ],
+      [
+        6,
+        7,
+        5,
+        189
+      ],
+      [
+        7,
+        8,
+        5,
+        189
+      ],
+      [
+        8,
+        9,
+        5,
+        192
+      ],
+      [
+        9,
+        10,
+        5,
+        184
+      ],
+      [
+        10,
+        11,
+        8,
+        184
+      ],
+      [
+        11,
+        12,
+        8,
+        184
+      ],
+      [
+        12,
+        13,
+        8,
+        184
+      ]
+    ],
+    "nominal_envelope_nm": {
+      "x": 10.0,
+      "y": 12.5,
+      "z": 65.28
+    },
+    "radial_spread_fraction": 0.492,
+    "boundary_note": "Ends are lattice-stepped; fixed caps are filled parallel-helix blocks, not hinged sheets or a watertight membrane.",
+    "search_note": "Deterministic bounded search; near-circular means low radial spread among explored candidates, not a global optimum."
+  },
+  "report_path": "examples\\rectangular_tube.report.json",
+  "compact_preservation": {
+    "check": "compact_preservation",
+    "status": "PASS",
+    "message": "All parsed JSON fields identical"
+  },
+  "scaffold_length": 7249
+}

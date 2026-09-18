@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""V2: deterministic lattice-aware scadnano generation and gated export."""
+"""V3: lattice-aware plates, bundles, parameterized tubes and fixed-cap containers."""
 
 import argparse
 import json
@@ -12,10 +12,13 @@ import scadnano as sc
 from lattice import TABLES, legal, neighbors
 from validation import validate, preservation, read_data
 
-VERSION = "2.0.0"
+VERSION = "3.0.0"
 DEFAULT_SCAFFOLD_LENGTH = 7249
 SUPPORTED = ("rectangle", "square", "long_strip", "planar_plate",
              "2_helix_bundle", "4_helix_bundle", "6_helix_bundle", "regular_tube")
+LEGACY_SUPPORTED = SUPPORTED
+from geometry import NEW_SHAPES
+SUPPORTED = SUPPORTED + NEW_SHAPES
 UNSUPPORTED = ("open_box", "simple_triangle", "simple_trapezoid", "simple_hexagon",
                "L_shape", "T_shape", "cross_shape", "rectangular_frame",
                "plate_with_rectangular_hole", "static_closed_box", "simple_U_shape",
@@ -138,7 +141,7 @@ def segment_staple(path):
     return list(reversed(segments))
 
 
-def build_staples(coords, intervals, lattice):
+def build_staples(coords, intervals, lattice, required_pairs=None):
     # This internal directed graph is converted to scadnano Domains/Strands.
     # Only scadnano's exporter writes cadnano routing arrays.
     successor = {}
@@ -152,18 +155,26 @@ def build_staples(coords, intervals, lattice):
     pairs = [(h, h + 1) for h in range(len(coords) - 1)]
     if len(coords) > 2 and coords[-1] in neighbors(lattice, coords[0]):
         pairs.append((len(coords) - 1, 0))
+    if required_pairs is not None:
+        pairs = required_pairs
+    planned = None
+    if required_pairs is not None:
+        from routing_v3 import schedule_contacts
+        planned = schedule_contacts(coords, intervals, lattice, pairs)
     for a, b in pairs:
         lo = max(intervals[a][0], intervals[b][0])
         hi = min(intervals[a][1], intervals[b][1])
         cuts = []
         for k in range(lo + 10, hi - 9):
+            if planned is not None and k not in planned[(a,b)]:
+                continue
             if not (legal(lattice, coords[a], coords[b], "stap", k - 1, True) and
                     legal(lattice, coords[a], coords[b], "stap", k, False)):
                 continue
             spacing = (4 if lattice == "honeycomb" else 2) * TABLES[lattice]["period"]
             if cuts and k - cuts[-1] < spacing:
                 continue
-            if any(h == t and abs(k - previous) < 16
+            if planned is None and any(h == t and abs(k - previous) < 16
                    for h in (a, b) for t, previous in endpoint_sites):
                 continue
             cuts.append(k)
@@ -275,7 +286,9 @@ def build(shape, lattice, num_helices=None, bases_per_helix=None, side_helices=N
 
 def create_design(shape_id="rectangle", output_basename="design", user_lattice=None,
                   num_helices=None, bases_per_helix=None, side_helices=None,
-                  scaffold_length=DEFAULT_SCAFFOLD_LENGTH, **unknown):
+                  scaffold_length=DEFAULT_SCAFFOLD_LENGTH, width_helices=None,
+                  height_helices=None, cross_section=None, polygon_sides=None,
+                  end_style=None, cap_length=None, **unknown):
     result = {"version": VERSION, "design_status": "GENERATION_FAILED", "validation_status": "NOT_RUN",
               "experimental_status": "EXPERIMENTALLY_UNVALIDATED", "submission_status": "NOT_SUBMITTED",
               "sequence_status": "not_assigned", "full_path": None, "cando_compact_path": None}
@@ -283,7 +296,7 @@ def create_design(shape_id="rectangle", output_basename="design", user_lattice=N
     try:
         if shape_id not in SUPPORTED:
             result["design_status"] = "UNSUPPORTED_REQUEST"
-            raise ValueError(f"No verified V2 template for {shape_id}")
+            raise ValueError(f"No verified template for {shape_id}")
         if unknown:
             raise ValueError("Unknown parameters: " + ", ".join(sorted(unknown)))
         positive_int(scaffold_length, "scaffold_length")
@@ -294,9 +307,19 @@ def create_design(shape_id="rectangle", output_basename="design", user_lattice=N
                    (".full.json", ".cando_compact.json", ".report.json")]
         if any(p.exists() for p in targets):
             raise ValueError("Output already exists; use a new output basename")
-        design, metadata = build(shape_id, lattice, num_helices, bases_per_helix, side_helices)
-        expected = {h: (coord, interval) for h, (coord, interval) in
-                    enumerate(zip(metadata["coordinates_row_col"], metadata["occupied_intervals"]))}
+        if shape_id in NEW_SHAPES:
+            from routing_v3 import build_v3
+            design, metadata, expected = build_v3(
+                shape_id, lattice, num_helices, bases_per_helix, side_helices,
+                width_helices, height_helices, cross_section, polygon_sides,
+                end_style, cap_length, scaffold_length)
+        else:
+            if any(x is not None for x in (width_helices,height_helices,cross_section,
+                                           polygon_sides,end_style,cap_length)):
+                raise ValueError('V3 geometry parameters require a V3 template')
+            design, metadata = build(shape_id, lattice, num_helices, bases_per_helix, side_helices)
+            expected = {h: (coord, interval) for h, (coord, interval) in
+                        enumerate(zip(metadata["coordinates_row_col"], metadata["occupied_intervals"]))}
         targets[0].parent.mkdir(parents=True, exist_ok=True)
         # No final files until exported data passes the full validator.
         with tempfile.TemporaryDirectory(prefix="cadnano_v2_", dir=targets[0].parent) as temp:
@@ -306,6 +329,13 @@ def create_design(shape_id="rectangle", output_basename="design", user_lattice=N
             data["name"] = base.name  # remove transient path; routing unchanged
             full.write_text(json.dumps(data, indent=2) + "\n", encoding="utf-8")
             audit = validate(full, lattice, scaffold_length, expected)
+            if shape_id in NEW_SHAPES:
+                from shape_validation import validate_shape
+                shape_audit = validate_shape(data, metadata)
+                result['geometry_validation'] = shape_audit
+                if shape_audit['status'] != 'PASS':
+                    audit['errors'].extend(shape_audit['errors'])
+                    audit['status'] = 'FAIL'
             result.update(validation_report=audit, design_summary=metadata)
             if audit["status"] != "PASS":
                 raise ValueError("Export validation failed: " + "; ".join(audit["errors"][:8]))
@@ -357,6 +387,12 @@ def main():
     parser.add_argument("--num-helices", type=int)
     parser.add_argument("--bases-per-helix", type=int)
     parser.add_argument("--side-helices", type=int)
+    parser.add_argument("--width-helices", type=int)
+    parser.add_argument("--height-helices", type=int)
+    parser.add_argument("--cross-section", choices=('square','rectangle','near_circular','polygon'))
+    parser.add_argument("--polygon-sides", type=int)
+    parser.add_argument("--end-style", choices=('open','one_cap','two_caps'))
+    parser.add_argument("--cap-length", type=int)
     parser.add_argument("--scaffold-length", type=int, default=7249)
     parser.add_argument("--catalog", action="store_true")
     parser.add_argument("--validate", metavar="CADNANO_JSON")
@@ -372,7 +408,9 @@ def main():
         return 0 if result["status"] == "PASS" else 1
     result = create_design(args.shape, args.output, args.lattice,
                            args.num_helices, args.bases_per_helix,
-                           args.side_helices, args.scaffold_length)
+                           args.side_helices, args.scaffold_length,
+                           args.width_helices,args.height_helices,args.cross_section,
+                           args.polygon_sides,args.end_style,args.cap_length)
     print(json.dumps(result, indent=2))
     return 0 if result["design_status"] == "GENERATED" else 1
 

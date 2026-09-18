@@ -180,7 +180,8 @@ def validate(value, lattice, scaffold_length=7249, expected=None):
                     errors.append("helix coordinates do not match expected design")
                 for kind in ("scaf", "stap"):
                     occupied = [i for i, r in enumerate(vh[kind]) if r != EMPTY]
-                    if occupied != list(range(*interval)):
+                    intervals = interval if interval and isinstance(interval[0], (list, tuple)) else [interval]
+                    if occupied != sorted(i for lo,hi in intervals for i in range(lo,hi)):
                         errors.append("occupied intervals do not match expected design")
         report["counts"]["vstrands"] = len(helices)
         report["counts"]["paired_positions"] = sum(

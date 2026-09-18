@@ -1,0 +1,886 @@
+{
+  "version": "3.0.0",
+  "design_status": "GENERATED",
+  "validation_status": "CANDO_INPUT_GENERATED",
+  "experimental_status": "EXPERIMENTALLY_UNVALIDATED",
+  "submission_status": "NOT_SUBMITTED",
+  "sequence_status": "not_assigned",
+  "full_path": "examples\\capped_square_tube.full.json",
+  "cando_compact_path": "examples\\capped_square_tube.cando_compact.json",
+  "lattice_type": "square",
+  "lattice_reason": "template default",
+  "geometry_validation": {
+    "status": "PASS",
+    "errors": [],
+    "wall_cycle_checked": true,
+    "cap_volume_checked": true,
+    "interpretation": "Ideal parallel-helix lattice geometry; no relaxation or experimental inference"
+  },
+  "validation_report": {
+    "status": "PASS",
+    "errors": [],
+    "counts": {
+      "scaf": {
+        "occupied_bases": 5516,
+        "oligos": 1,
+        "circular_oligos": 0,
+        "physical_crossovers": 19,
+        "oligo_lengths": [
+          5516
+        ]
+      },
+      "stap": {
+        "occupied_bases": 5516,
+        "oligos": 165,
+        "circular_oligos": 0,
+        "physical_crossovers": 176,
+        "oligo_lengths": [
+          28,
+          28,
+          28,
+          28,
+          28,
+          28,
+          28,
+          28,
+          28,
+          28,
+          28,
+          28,
+          29,
+          29,
+          29,
+          29,
+          29,
+          29,
+          29,
+          29,
+          29,
+          29,
+          29,
+          29,
+          29,
+          29,
+          29,
+          29,
+          29,
+          29,
+          29,
+          29,
+          29,
+          29,
+          29,
+          29,
+          30,
+          30,
+          30,
+          30,
+          30,
+          30,
+          30,
+          30,
+          30,
+          30,
+          30,
+          30,
+          30,
+          30,
+          30,
+          31,
+          31,
+          31,
+          31,
+          31,
+          31,
+          31,
+          32,
+          32,
+          32,
+          32,
+          32,
+          32,
+          32,
+          32,
+          32,
+          32,
+          32,
+          32,
+          32,
+          32,
+          32,
+          32,
+          32,
+          32,
+          32,
+          32,
+          32,
+          32,
+          32,
+          33,
+          33,
+          33,
+          33,
+          34,
+          34,
+          34,
+          34,
+          34,
+          34,
+          34,
+          34,
+          34,
+          34,
+          34,
+          34,
+          34,
+          34,
+          34,
+          34,
+          34,
+          34,
+          34,
+          34,
+          34,
+          35,
+          35,
+          35,
+          35,
+          35,
+          35,
+          35,
+          35,
+          35,
+          35,
+          35,
+          35,
+          35,
+          35,
+          35,
+          35,
+          36,
+          36,
+          36,
+          36,
+          36,
+          36,
+          36,
+          36,
+          36,
+          36,
+          36,
+          36,
+          36,
+          36,
+          36,
+          36,
+          36,
+          36,
+          36,
+          36,
+          36,
+          36,
+          36,
+          36,
+          40,
+          40,
+          40,
+          40,
+          40,
+          40,
+          40,
+          42,
+          43,
+          43,
+          43,
+          43,
+          43,
+          43,
+          45,
+          45,
+          45,
+          48,
+          48
+        ]
+      },
+      "vstrands": 16,
+      "paired_positions": 5516
+    }
+  },
+  "design_summary": {
+    "shape_id": "capped_square_tube",
+    "cross_section": "square",
+    "end_style": "two_caps",
+    "lattice_type": "square",
+    "num_helices": 16,
+    "wall_num_helices": 12,
+    "cap_interior_helix_columns": 4,
+    "bases_per_helix": 384,
+    "cap_length_bp": 128,
+    "nominal_cap_thickness_nm": 43.52,
+    "nominal_lumen_length_bp": 128,
+    "total_scaffold_nt": 5516,
+    "num_staples": 165,
+    "storage_length_bp": 384,
+    "wall_coordinates_row_col": [
+      [
+        2,
+        2
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        4,
+        5
+      ],
+      [
+        5,
+        5
+      ],
+      [
+        5,
+        4
+      ],
+      [
+        5,
+        3
+      ],
+      [
+        5,
+        2
+      ],
+      [
+        4,
+        2
+      ],
+      [
+        3,
+        2
+      ]
+    ],
+    "interior_coordinates_row_col": [
+      [
+        3,
+        3
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        4,
+        3
+      ],
+      [
+        4,
+        4
+      ]
+    ],
+    "coordinates_row_col": [
+      [
+        2,
+        2
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        3,
+        3
+      ],
+      [
+        4,
+        3
+      ],
+      [
+        4,
+        4
+      ],
+      [
+        4,
+        5
+      ],
+      [
+        5,
+        5
+      ],
+      [
+        5,
+        4
+      ],
+      [
+        5,
+        3
+      ],
+      [
+        5,
+        2
+      ],
+      [
+        4,
+        2
+      ],
+      [
+        3,
+        2
+      ]
+    ],
+    "helix_ids": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15
+    ],
+    "occupied_intervals": {
+      "0": [
+        [
+          0,
+          379
+        ]
+      ],
+      "1": [
+        [
+          0,
+          379
+        ]
+      ],
+      "2": [
+        [
+          0,
+          379
+        ]
+      ],
+      "3": [
+        [
+          3,
+          379
+        ]
+      ],
+      "4": [
+        [
+          3,
+          384
+        ]
+      ],
+      "5": [
+        [
+          3,
+          123
+        ],
+        [
+          261,
+          384
+        ]
+      ],
+      "6": [
+        [
+          0,
+          123
+        ],
+        [
+          261,
+          381
+        ]
+      ],
+      "7": [
+        [
+          0,
+          128
+        ],
+        [
+          256,
+          381
+        ]
+      ],
+      "8": [
+        [
+          3,
+          128
+        ],
+        [
+          256,
+          379
+        ]
+      ],
+      "9": [
+        [
+          3,
+          379
+        ]
+      ],
+      "10": [
+        [
+          3,
+          384
+        ]
+      ],
+      "11": [
+        [
+          5,
+          384
+        ]
+      ],
+      "12": [
+        [
+          5,
+          384
+        ]
+      ],
+      "13": [
+        [
+          8,
+          384
+        ]
+      ],
+      "14": [
+        [
+          8,
+          376
+        ]
+      ],
+      "15": [
+        [
+          0,
+          376
+        ]
+      ]
+    },
+    "segment_route": [
+      {
+        "helix": 0,
+        "region": "wall",
+        "interval": [
+          0,
+          379
+        ]
+      },
+      {
+        "helix": 1,
+        "region": "wall",
+        "interval": [
+          0,
+          379
+        ]
+      },
+      {
+        "helix": 2,
+        "region": "wall",
+        "interval": [
+          0,
+          379
+        ]
+      },
+      {
+        "helix": 3,
+        "region": "wall",
+        "interval": [
+          3,
+          379
+        ]
+      },
+      {
+        "helix": 4,
+        "region": "wall",
+        "interval": [
+          3,
+          384
+        ]
+      },
+      {
+        "helix": 5,
+        "region": "high",
+        "interval": [
+          261,
+          384
+        ]
+      },
+      {
+        "helix": 6,
+        "region": "high",
+        "interval": [
+          261,
+          381
+        ]
+      },
+      {
+        "helix": 7,
+        "region": "high",
+        "interval": [
+          256,
+          381
+        ]
+      },
+      {
+        "helix": 8,
+        "region": "high",
+        "interval": [
+          256,
+          379
+        ]
+      },
+      {
+        "helix": 9,
+        "region": "wall",
+        "interval": [
+          3,
+          379
+        ]
+      },
+      {
+        "helix": 10,
+        "region": "wall",
+        "interval": [
+          3,
+          384
+        ]
+      },
+      {
+        "helix": 11,
+        "region": "wall",
+        "interval": [
+          5,
+          384
+        ]
+      },
+      {
+        "helix": 12,
+        "region": "wall",
+        "interval": [
+          5,
+          384
+        ]
+      },
+      {
+        "helix": 13,
+        "region": "wall",
+        "interval": [
+          8,
+          384
+        ]
+      },
+      {
+        "helix": 14,
+        "region": "wall",
+        "interval": [
+          8,
+          376
+        ]
+      },
+      {
+        "helix": 15,
+        "region": "wall",
+        "interval": [
+          0,
+          376
+        ]
+      },
+      {
+        "helix": 6,
+        "region": "low",
+        "interval": [
+          0,
+          123
+        ]
+      },
+      {
+        "helix": 5,
+        "region": "low",
+        "interval": [
+          3,
+          123
+        ]
+      },
+      {
+        "helix": 8,
+        "region": "low",
+        "interval": [
+          3,
+          128
+        ]
+      },
+      {
+        "helix": 7,
+        "region": "low",
+        "interval": [
+          0,
+          128
+        ]
+      }
+    ],
+    "required_staple_contacts": [
+      [
+        0,
+        1,
+        0,
+        379
+      ],
+      [
+        0,
+        15,
+        0,
+        376
+      ],
+      [
+        1,
+        2,
+        0,
+        379
+      ],
+      [
+        1,
+        6,
+        261,
+        379
+      ],
+      [
+        1,
+        6,
+        0,
+        123
+      ],
+      [
+        2,
+        3,
+        3,
+        379
+      ],
+      [
+        2,
+        5,
+        261,
+        379
+      ],
+      [
+        2,
+        5,
+        3,
+        123
+      ],
+      [
+        3,
+        4,
+        3,
+        379
+      ],
+      [
+        4,
+        5,
+        261,
+        384
+      ],
+      [
+        4,
+        9,
+        3,
+        379
+      ],
+      [
+        4,
+        5,
+        3,
+        123
+      ],
+      [
+        5,
+        6,
+        261,
+        381
+      ],
+      [
+        5,
+        8,
+        261,
+        379
+      ],
+      [
+        6,
+        7,
+        261,
+        381
+      ],
+      [
+        6,
+        15,
+        261,
+        376
+      ],
+      [
+        7,
+        8,
+        256,
+        379
+      ],
+      [
+        7,
+        12,
+        256,
+        381
+      ],
+      [
+        7,
+        14,
+        256,
+        376
+      ],
+      [
+        8,
+        9,
+        256,
+        379
+      ],
+      [
+        8,
+        11,
+        256,
+        379
+      ],
+      [
+        9,
+        10,
+        3,
+        379
+      ],
+      [
+        9,
+        8,
+        3,
+        128
+      ],
+      [
+        10,
+        11,
+        5,
+        384
+      ],
+      [
+        11,
+        12,
+        5,
+        384
+      ],
+      [
+        11,
+        8,
+        5,
+        128
+      ],
+      [
+        12,
+        13,
+        8,
+        384
+      ],
+      [
+        12,
+        7,
+        5,
+        128
+      ],
+      [
+        13,
+        14,
+        8,
+        376
+      ],
+      [
+        14,
+        15,
+        8,
+        376
+      ],
+      [
+        14,
+        7,
+        8,
+        128
+      ],
+      [
+        15,
+        6,
+        0,
+        123
+      ],
+      [
+        6,
+        5,
+        3,
+        123
+      ],
+      [
+        6,
+        7,
+        0,
+        123
+      ],
+      [
+        5,
+        8,
+        3,
+        123
+      ],
+      [
+        8,
+        7,
+        3,
+        128
+      ]
+    ],
+    "nominal_envelope_nm": {
+      "x": 10.0,
+      "y": 10.0,
+      "z": 130.56
+    },
+    "radial_spread_fraction": 0.3067,
+    "boundary_note": "Ends are lattice-stepped; fixed caps are filled parallel-helix blocks, not hinged sheets or a watertight membrane.",
+    "search_note": "Deterministic bounded search; near-circular means low radial spread among explored candidates, not a global optimum."
+  },
+  "report_path": "examples\\capped_square_tube.report.json",
+  "compact_preservation": {
+    "check": "compact_preservation",
+    "status": "PASS",
+    "message": "All parsed JSON fields identical"
+  },
+  "scaffold_length": 7249
+}

@@ -1,0 +1,1021 @@
+{
+  "version": "3.0.0",
+  "design_status": "GENERATED",
+  "validation_status": "CANDO_INPUT_GENERATED",
+  "experimental_status": "EXPERIMENTALLY_UNVALIDATED",
+  "submission_status": "NOT_SUBMITTED",
+  "sequence_status": "not_assigned",
+  "full_path": "examples\\polygonal_tube.full.json",
+  "cando_compact_path": "examples\\polygonal_tube.cando_compact.json",
+  "lattice_type": "square",
+  "lattice_reason": "template default",
+  "geometry_validation": {
+    "status": "PASS",
+    "errors": [],
+    "wall_cycle_checked": true,
+    "cap_volume_checked": false,
+    "interpretation": "Ideal parallel-helix lattice geometry; no relaxation or experimental inference"
+  },
+  "validation_report": {
+    "status": "PASS",
+    "errors": [],
+    "counts": {
+      "scaf": {
+        "occupied_bases": 4432,
+        "oligos": 1,
+        "circular_oligos": 0,
+        "physical_crossovers": 23,
+        "oligo_lengths": [
+          4432
+        ]
+      },
+      "stap": {
+        "occupied_bases": 4432,
+        "oligos": 136,
+        "circular_oligos": 0,
+        "physical_crossovers": 140,
+        "oligo_lengths": [
+          22,
+          22,
+          24,
+          24,
+          24,
+          24,
+          24,
+          24,
+          24,
+          24,
+          29,
+          29,
+          30,
+          30,
+          30,
+          30,
+          30,
+          30,
+          30,
+          30,
+          30,
+          30,
+          30,
+          30,
+          30,
+          30,
+          30,
+          30,
+          30,
+          30,
+          30,
+          30,
+          30,
+          30,
+          30,
+          30,
+          30,
+          32,
+          32,
+          32,
+          32,
+          32,
+          32,
+          32,
+          32,
+          32,
+          32,
+          32,
+          32,
+          32,
+          32,
+          32,
+          32,
+          32,
+          32,
+          32,
+          32,
+          32,
+          32,
+          32,
+          32,
+          32,
+          32,
+          32,
+          32,
+          32,
+          32,
+          32,
+          32,
+          32,
+          32,
+          32,
+          32,
+          32,
+          32,
+          32,
+          32,
+          32,
+          32,
+          32,
+          32,
+          32,
+          32,
+          32,
+          32,
+          32,
+          32,
+          32,
+          32,
+          32,
+          32,
+          32,
+          32,
+          32,
+          32,
+          32,
+          32,
+          32,
+          32,
+          32,
+          32,
+          34,
+          34,
+          34,
+          35,
+          35,
+          35,
+          35,
+          35,
+          35,
+          35,
+          35,
+          36,
+          36,
+          36,
+          36,
+          36,
+          36,
+          36,
+          36,
+          36,
+          36,
+          36,
+          36,
+          40,
+          40,
+          40,
+          40,
+          42,
+          42,
+          42,
+          42,
+          45,
+          45,
+          54,
+          54
+        ]
+      },
+      "vstrands": 24,
+      "paired_positions": 4432
+    }
+  },
+  "design_summary": {
+    "shape_id": "polygonal_tube",
+    "cross_section": "polygon",
+    "end_style": "open",
+    "lattice_type": "square",
+    "num_helices": 24,
+    "wall_num_helices": 24,
+    "cap_interior_helix_columns": 0,
+    "bases_per_helix": 192,
+    "cap_length_bp": 0,
+    "nominal_cap_thickness_nm": 0,
+    "nominal_lumen_length_bp": 192,
+    "total_scaffold_nt": 4432,
+    "num_staples": 136,
+    "storage_length_bp": 192,
+    "wall_coordinates_row_col": [
+      [
+        2,
+        2
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        2,
+        6
+      ],
+      [
+        2,
+        7
+      ],
+      [
+        2,
+        8
+      ],
+      [
+        3,
+        8
+      ],
+      [
+        4,
+        8
+      ],
+      [
+        5,
+        8
+      ],
+      [
+        6,
+        8
+      ],
+      [
+        7,
+        8
+      ],
+      [
+        8,
+        8
+      ],
+      [
+        8,
+        7
+      ],
+      [
+        8,
+        6
+      ],
+      [
+        8,
+        5
+      ],
+      [
+        8,
+        4
+      ],
+      [
+        8,
+        3
+      ],
+      [
+        8,
+        2
+      ],
+      [
+        7,
+        2
+      ],
+      [
+        6,
+        2
+      ],
+      [
+        5,
+        2
+      ],
+      [
+        4,
+        2
+      ],
+      [
+        3,
+        2
+      ]
+    ],
+    "interior_coordinates_row_col": [
+      [
+        3,
+        3
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        4,
+        3
+      ],
+      [
+        4,
+        4
+      ],
+      [
+        4,
+        5
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        4,
+        7
+      ],
+      [
+        5,
+        3
+      ],
+      [
+        5,
+        4
+      ],
+      [
+        5,
+        5
+      ],
+      [
+        5,
+        6
+      ],
+      [
+        5,
+        7
+      ],
+      [
+        6,
+        3
+      ],
+      [
+        6,
+        4
+      ],
+      [
+        6,
+        5
+      ],
+      [
+        6,
+        6
+      ],
+      [
+        6,
+        7
+      ],
+      [
+        7,
+        3
+      ],
+      [
+        7,
+        4
+      ],
+      [
+        7,
+        5
+      ],
+      [
+        7,
+        6
+      ],
+      [
+        7,
+        7
+      ]
+    ],
+    "coordinates_row_col": [
+      [
+        2,
+        2
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        2,
+        6
+      ],
+      [
+        2,
+        7
+      ],
+      [
+        2,
+        8
+      ],
+      [
+        3,
+        8
+      ],
+      [
+        4,
+        8
+      ],
+      [
+        5,
+        8
+      ],
+      [
+        6,
+        8
+      ],
+      [
+        7,
+        8
+      ],
+      [
+        8,
+        8
+      ],
+      [
+        8,
+        7
+      ],
+      [
+        8,
+        6
+      ],
+      [
+        8,
+        5
+      ],
+      [
+        8,
+        4
+      ],
+      [
+        8,
+        3
+      ],
+      [
+        8,
+        2
+      ],
+      [
+        7,
+        2
+      ],
+      [
+        6,
+        2
+      ],
+      [
+        5,
+        2
+      ],
+      [
+        4,
+        2
+      ],
+      [
+        3,
+        2
+      ]
+    ],
+    "helix_ids": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23
+    ],
+    "occupied_intervals": {
+      "0": [
+        [
+          0,
+          187
+        ]
+      ],
+      "1": [
+        [
+          0,
+          187
+        ]
+      ],
+      "2": [
+        [
+          0,
+          187
+        ]
+      ],
+      "3": [
+        [
+          0,
+          187
+        ]
+      ],
+      "4": [
+        [
+          0,
+          187
+        ]
+      ],
+      "5": [
+        [
+          0,
+          187
+        ]
+      ],
+      "6": [
+        [
+          0,
+          189
+        ]
+      ],
+      "7": [
+        [
+          3,
+          189
+        ]
+      ],
+      "8": [
+        [
+          3,
+          189
+        ]
+      ],
+      "9": [
+        [
+          3,
+          189
+        ]
+      ],
+      "10": [
+        [
+          3,
+          189
+        ]
+      ],
+      "11": [
+        [
+          3,
+          189
+        ]
+      ],
+      "12": [
+        [
+          3,
+          192
+        ]
+      ],
+      "13": [
+        [
+          5,
+          192
+        ]
+      ],
+      "14": [
+        [
+          5,
+          192
+        ]
+      ],
+      "15": [
+        [
+          5,
+          192
+        ]
+      ],
+      "16": [
+        [
+          5,
+          192
+        ]
+      ],
+      "17": [
+        [
+          5,
+          192
+        ]
+      ],
+      "18": [
+        [
+          5,
+          184
+        ]
+      ],
+      "19": [
+        [
+          8,
+          184
+        ]
+      ],
+      "20": [
+        [
+          8,
+          184
+        ]
+      ],
+      "21": [
+        [
+          8,
+          184
+        ]
+      ],
+      "22": [
+        [
+          8,
+          184
+        ]
+      ],
+      "23": [
+        [
+          0,
+          184
+        ]
+      ]
+    },
+    "segment_route": [
+      {
+        "helix": 0,
+        "region": "wall",
+        "interval": [
+          0,
+          187
+        ]
+      },
+      {
+        "helix": 1,
+        "region": "wall",
+        "interval": [
+          0,
+          187
+        ]
+      },
+      {
+        "helix": 2,
+        "region": "wall",
+        "interval": [
+          0,
+          187
+        ]
+      },
+      {
+        "helix": 3,
+        "region": "wall",
+        "interval": [
+          0,
+          187
+        ]
+      },
+      {
+        "helix": 4,
+        "region": "wall",
+        "interval": [
+          0,
+          187
+        ]
+      },
+      {
+        "helix": 5,
+        "region": "wall",
+        "interval": [
+          0,
+          187
+        ]
+      },
+      {
+        "helix": 6,
+        "region": "wall",
+        "interval": [
+          0,
+          189
+        ]
+      },
+      {
+        "helix": 7,
+        "region": "wall",
+        "interval": [
+          3,
+          189
+        ]
+      },
+      {
+        "helix": 8,
+        "region": "wall",
+        "interval": [
+          3,
+          189
+        ]
+      },
+      {
+        "helix": 9,
+        "region": "wall",
+        "interval": [
+          3,
+          189
+        ]
+      },
+      {
+        "helix": 10,
+        "region": "wall",
+        "interval": [
+          3,
+          189
+        ]
+      },
+      {
+        "helix": 11,
+        "region": "wall",
+        "interval": [
+          3,
+          189
+        ]
+      },
+      {
+        "helix": 12,
+        "region": "wall",
+        "interval": [
+          3,
+          192
+        ]
+      },
+      {
+        "helix": 13,
+        "region": "wall",
+        "interval": [
+          5,
+          192
+        ]
+      },
+      {
+        "helix": 14,
+        "region": "wall",
+        "interval": [
+          5,
+          192
+        ]
+      },
+      {
+        "helix": 15,
+        "region": "wall",
+        "interval": [
+          5,
+          192
+        ]
+      },
+      {
+        "helix": 16,
+        "region": "wall",
+        "interval": [
+          5,
+          192
+        ]
+      },
+      {
+        "helix": 17,
+        "region": "wall",
+        "interval": [
+          5,
+          192
+        ]
+      },
+      {
+        "helix": 18,
+        "region": "wall",
+        "interval": [
+          5,
+          184
+        ]
+      },
+      {
+        "helix": 19,
+        "region": "wall",
+        "interval": [
+          8,
+          184
+        ]
+      },
+      {
+        "helix": 20,
+        "region": "wall",
+        "interval": [
+          8,
+          184
+        ]
+      },
+      {
+        "helix": 21,
+        "region": "wall",
+        "interval": [
+          8,
+          184
+        ]
+      },
+      {
+        "helix": 22,
+        "region": "wall",
+        "interval": [
+          8,
+          184
+        ]
+      },
+      {
+        "helix": 23,
+        "region": "wall",
+        "interval": [
+          0,
+          184
+        ]
+      }
+    ],
+    "required_staple_contacts": [
+      [
+        0,
+        1,
+        0,
+        187
+      ],
+      [
+        0,
+        23,
+        0,
+        184
+      ],
+      [
+        1,
+        2,
+        0,
+        187
+      ],
+      [
+        2,
+        3,
+        0,
+        187
+      ],
+      [
+        3,
+        4,
+        0,
+        187
+      ],
+      [
+        4,
+        5,
+        0,
+        187
+      ],
+      [
+        5,
+        6,
+        0,
+        187
+      ],
+      [
+        6,
+        7,
+        3,
+        189
+      ],
+      [
+        7,
+        8,
+        3,
+        189
+      ],
+      [
+        8,
+        9,
+        3,
+        189
+      ],
+      [
+        9,
+        10,
+        3,
+        189
+      ],
+      [
+        10,
+        11,
+        3,
+        189
+      ],
+      [
+        11,
+        12,
+        3,
+        189
+      ],
+      [
+        12,
+        13,
+        5,
+        192
+      ],
+      [
+        13,
+        14,
+        5,
+        192
+      ],
+      [
+        14,
+        15,
+        5,
+        192
+      ],
+      [
+        15,
+        16,
+        5,
+        192
+      ],
+      [
+        16,
+        17,
+        5,
+        192
+      ],
+      [
+        17,
+        18,
+        5,
+        184
+      ],
+      [
+        18,
+        19,
+        8,
+        184
+      ],
+      [
+        19,
+        20,
+        8,
+        184
+      ],
+      [
+        20,
+        21,
+        8,
+        184
+      ],
+      [
+        21,
+        22,
+        8,
+        184
+      ],
+      [
+        22,
+        23,
+        8,
+        184
+      ]
+    ],
+    "nominal_envelope_nm": {
+      "x": 17.5,
+      "y": 17.5,
+      "z": 65.28
+    },
+    "radial_spread_fraction": 0.3588,
+    "boundary_note": "Ends are lattice-stepped; fixed caps are filled parallel-helix blocks, not hinged sheets or a watertight membrane.",
+    "search_note": "Deterministic bounded search; near-circular means low radial spread among explored candidates, not a global optimum."
+  },
+  "report_path": "examples\\polygonal_tube.report.json",
+  "compact_preservation": {
+    "check": "compact_preservation",
+    "status": "PASS",
+    "message": "All parsed JSON fields identical"
+  },
+  "scaffold_length": 7249
+}
